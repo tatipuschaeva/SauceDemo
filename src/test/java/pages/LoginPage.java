@@ -7,10 +7,10 @@ public class LoginPage {
 
     static WebDriver driver;
 
-    static By userField = By.id("user-name");
-    static By passwordField = By.id("password");
-    static By loginButton = By.id("login-button");
-    static By errorMessage = By.cssSelector("[data-test=error]");
+    static By userField = By.xpath("//input[@id='user-name']");
+    static By passwordField = By.xpath("//input[@id='password']");
+    static By loginButton = By.xpath("//input[@id='login-button']");
+    static By errorMessage = By.xpath("//h3[@data-test='error']");
 
     public LoginPage(WebDriver driver) {
         LoginPage.driver = driver;

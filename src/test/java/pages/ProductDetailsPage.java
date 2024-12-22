@@ -7,9 +7,9 @@ public class ProductDetailsPage {
 
     private static WebDriver driver;
 
-    private final By productNameLocator = By.className("inventory_details_name");
-    private final By productDescriptionLocator = By.className("inventory_details_desc");
-    private final By productPriceLocator = By.className("inventory_details_price");
+    private final By productNameLocator = By.xpath("//div[@class='inventory_details_name large_size']");
+    private final By productDescriptionLocator = By.xpath("//div[@class='inventory_details_desc large_size']");
+    private final By productPriceLocator = By.xpath("//div[@class='inventory_details_price']");
 
     public ProductDetailsPage(WebDriver driver) {
         ProductDetailsPage.driver = driver;

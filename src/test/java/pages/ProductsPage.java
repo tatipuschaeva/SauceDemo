@@ -8,16 +8,16 @@ import java.util.List;
 
 public class ProductsPage {
 
-    // Локаторы элементов
-    private static final By inventoryListLocator = By.className("inventory_list");
-    private static final By inventoryItemLocator = By.className("inventory_item");
-    private static final By itemNameLocator = By.className("inventory_item_name");
-    private static final By itemDescriptionLocator = By.className("inventory_item_desc");
-    private static final By itemPriceLocator = By.className("inventory_item_price");
-    private static final By addToCartButtonLocator = By.cssSelector("button[data-test*='add-to-cart-']");
-    private static final By removeButtonLocator = By.cssSelector("button[data-test*='remove-']");
-    private static final By cartBadgeLocator = By.className("shopping_cart_badge");
-    private static final By shoppingCartLinkLocator = By.id("shopping_cart_container");
+    //
+    private static final By inventoryListLocator = By.xpath("//div[@class='inventory_list']");
+    private static final By inventoryItemLocator = By.xpath("//div[@class='inventory_item']");
+    private static final By itemNameLocator = By.xpath("//div[contains(@class,'inventory_item_name')]");
+    private static final By itemDescriptionLocator = By.xpath("//div[@class='inventory_item_desc']");
+    private static final By itemPriceLocator = By.xpath("//div[@class='inventory_item_price']");
+    private static final By addToCartButtonLocator = By.xpath("//button[contains(@data-test,'add-to-cart')]");
+    private static final By removeButtonLocator = By.xpath("//button[contains(@data-test,'remove')]");
+    private static final By cartBadgeLocator = By.xpath("//span[@class='shopping_cart_badge']");
+    private static final By shoppingCartLinkLocator = By.xpath("//a[@class='shopping_cart_link']");
     private static WebDriver driver;
 
     public ProductsPage(WebDriver driver) {
