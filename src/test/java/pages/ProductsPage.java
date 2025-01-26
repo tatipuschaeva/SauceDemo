@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,6 @@ import java.util.List;
 
 public class ProductsPage {
 
-    //
     private static final By inventoryListLocator = By.xpath("//div[@class='inventory_list']");
     private static final By inventoryItemLocator = By.xpath("//div[@class='inventory_item']");
     private static final By itemNameLocator = By.xpath("//div[contains(@class,'inventory_item_name')]");
@@ -24,6 +24,7 @@ public class ProductsPage {
         ProductsPage.driver = driver;
     }
 
+    @Step("Ищем кнопку \"Remove\"")
     public static boolean isRemoveButtonDisplayed(WebElement item) {
         try {
             return item.findElement(removeButtonLocator).isDisplayed();
@@ -32,6 +33,7 @@ public class ProductsPage {
         }
     }
 
+    @Step("Ищем знак корзины в правом верхнем углу страницы")
     public static boolean isShoppingCartButtonDisplayed() {
         try {
             return driver.findElement(shoppingCartLinkLocator).isDisplayed();
@@ -40,7 +42,7 @@ public class ProductsPage {
         }
     }
 
-    // Методы для работы с элементами страницы
+    @Step("Находим список всех товаров на странице")
     public WebElement getInventoryList() {
         return driver.findElement(inventoryListLocator);
     }
@@ -53,6 +55,7 @@ public class ProductsPage {
         return getInventoryItems().size();
     }
 
+    @Step("Получаем название товара")
     public String getItemName(WebElement item) {
         try {
             return item.findElement(itemNameLocator).getText();
@@ -61,6 +64,7 @@ public class ProductsPage {
         }
     }
 
+    @Step("Получаем описание товара")
     public String getItemDescription(WebElement item) {
         try {
             return item.findElement(itemDescriptionLocator).getText();
@@ -69,6 +73,7 @@ public class ProductsPage {
         }
     }
 
+    @Step("Получаем стоимость товара")
     public String getItemPrice(WebElement item) {
         try {
             return item.findElement(itemPriceLocator).getText();
@@ -77,22 +82,27 @@ public class ProductsPage {
         }
     }
 
+    @Step("Ищем кнопку Add to cart у товара")
     public WebElement getAddToCartButton(WebElement item) {
         return item.findElement(addToCartButtonLocator);
     }
 
+    @Step("Ищем кнопку Remove у товара")
     public WebElement getRemoveButton(WebElement item) {
         return item.findElement(removeButtonLocator);
     }
 
+    @Step("Нажимаем на кнопку \"Add to cart\" у товара")
     public void addToCart(WebElement item) {
         getAddToCartButton(item).click();
     }
 
+    @Step("Нажимаем на кнопку \"Remove\" у товара")
     public void remove(WebElement item) {
         getRemoveButton(item).click();
     }
 
+    @Step("Ищем кнопку \"Add to cart\" у  товара")
     public boolean isAddToCartButtonDisplayed(WebElement item) {
         try {
             return item.findElement(addToCartButtonLocator).isDisplayed();
@@ -101,6 +111,7 @@ public class ProductsPage {
         }
     }
 
+    @Step("Определяем количество товаров в корзине из главного меню")
     public boolean isCartBadgeDisplayed() {
         List<WebElement> elements = driver.findElements(cartBadgeLocator);
         return elements.size() > 0;
@@ -130,6 +141,7 @@ public class ProductsPage {
         getShoppingCartLink().click();
     }
 
+    @Step("Открываем детальную форму товара")
     public void openProductDetails(WebElement item) {
         item.findElement(itemNameLocator).click();
     }

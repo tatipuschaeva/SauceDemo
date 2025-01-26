@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -9,7 +10,14 @@ import java.util.List;
 
 public class ProductsTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Успешное добавление товара в корзину с главной страницы")
+    @Description("Необходимо проверить возможность добавления товара в корзину с главной страницы")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo 1.0")
+    @Feature("Add to cart in SauceDemo")
+    @Story("Добавление в корзину")
+    @TmsLink("www.jira.com/TK-8")
+    @Issue("www.jira.com/TK-8")
     public void checkPositiveProductAddInCart() {
         LoginPage.open();
         LoginPage.login("standard_user", "secret_sauce");
@@ -28,7 +36,14 @@ public class ProductsTest extends BaseTest {
                 "Счетчик корзины должен быть равен 1");
     }
 
-    @Test
+    @Test (testName = "Успешное удаление товара из корзины с главной страницы")
+    @Description("Необходимо проверить возможность удаления товара из корзины с главной страницы")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo 1.0")
+    @Feature("Remove in cart in SauceDemo")
+    @Story("Удаление в корзины")
+    @TmsLink("www.jira.com/TK-9")
+    @Issue("www.jira.com/TK-9")
     public void checkPositiveProductRemoveInCart() {
         LoginPage.open();
         LoginPage.login("standard_user", "secret_sauce");
@@ -54,10 +69,17 @@ public class ProductsTest extends BaseTest {
                 0, "Счетчик корзины должен быть равен 0");
     }
 
-    @Test
+    @Test (testName = "Переход в детальную форму товара")
+    @Description("Необходимо проверить возможность перехода в детальную форму товара из главной страницы")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo 1.0")
+    @Feature("Open ProductPage in SauceDemo")
+    @Story("Переход в детальную форму")
+    @TmsLink("www.jira.com/TK-10")
+    @Issue("www.jira.com/TK-10")
     public void checkOpenProductDetails() {
         LoginPage.open();
-        LoginPage.login("standard_user", "secret_sauce");
+        LoginPage.login("standard_userrr", "secret_sauce");
         // Ищем товар в списке
         List<WebElement> items = productsPage.getInventoryItems();
         softAssert.assertFalse(items.isEmpty(), "Список товаров пуст");
