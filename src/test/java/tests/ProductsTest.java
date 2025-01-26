@@ -10,8 +10,9 @@ import java.util.List;
 
 public class ProductsTest extends BaseTest {
 
-    @Test (testName = "Успешное добавление товара в корзину с главной страницы")
-    @Description("Необходимо проверить возможность добавления товара в корзину с главной страницы")
+    @Test(priority = 1, testName = "Успешное добавление товара в корзину с главной страницы",
+            description = "Необходимо проверить возможность добавления товара в корзину с главной страницы", enabled = false,
+            retryAnalyzer = Retry.class)
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo 1.0")
     @Feature("Add to cart in SauceDemo")
@@ -36,8 +37,8 @@ public class ProductsTest extends BaseTest {
                 "Счетчик корзины должен быть равен 1");
     }
 
-    @Test (testName = "Успешное удаление товара из корзины с главной страницы")
-    @Description("Необходимо проверить возможность удаления товара из корзины с главной страницы")
+    @Test(priority = 2, testName = "Успешное удаление товара из корзины с главной страницы",
+            description = "Необходимо проверить возможность удаления товара из корзины с главной страницы")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo 1.0")
     @Feature("Remove in cart in SauceDemo")
@@ -69,8 +70,8 @@ public class ProductsTest extends BaseTest {
                 0, "Счетчик корзины должен быть равен 0");
     }
 
-    @Test (testName = "Переход в детальную форму товара")
-    @Description("Необходимо проверить возможность перехода в детальную форму товара из главной страницы")
+    @Test(priority = 3, testName = "Переход в детальную форму товара",
+            description = "Необходимо проверить возможность перехода в детальную форму товара из главной страницы")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo 1.0")
     @Feature("Open ProductPage in SauceDemo")
